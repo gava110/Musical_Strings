@@ -1,4 +1,3 @@
-print( "questa è la prova di argparse")
 import argparse as ap
 
 parser = ap.ArgumentParser()
@@ -14,7 +13,8 @@ song2=args.song2
 
 from lyrics import get_lyric
 
-print (get_lyric(artist1,artist2))
+text1= get_lyric(artist1, song1)
+text2= get_lyric(artist2, song2)
 
 
 
