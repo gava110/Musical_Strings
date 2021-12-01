@@ -13,8 +13,15 @@ song2=args.song2
 
 from lyrics import get_lyric
 
-text1= get_lyric(artist1, song1)
-text2= get_lyric(artist2, song2)
+try:
+	text1= get_lyric(artist1, song1)
+except KeyError:
+	print ("{} - {} not found".format(artist1,song1))
+try :
+	text2= get_lyric(artist2, song2)
+except KeyError:
+	print ("{} - {} not found".format(artist2,song2))
+
 
 
 
