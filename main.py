@@ -96,7 +96,7 @@ if preference== "jaccard":
 if preference=="intersection":
 #by stemmisation
 	inter_s= intersection(stem1, stem2)
-	print ( "number of intersection by lemmatisation is {}".format(inter_l) )
+	print ( "number of intersection by stemmatisation is {}".format(inter_s) )
 	#by lemmatisation
 	inter_l= intersection(lem1, lem2)
 	print ( "number of intersection by lemmatisation is {}".format(inter_l) )
