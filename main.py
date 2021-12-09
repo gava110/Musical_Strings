@@ -1,5 +1,6 @@
 #per fare la prova: "the Beatles" "Yesterday" "John Lennon" "Imagine"
 #per fare la prova: "Beatles" "Yesterday" "Vasco rossi" "vivere"
+#per fare la prova: "The Who" "My Generation" "Chuck Berry" ""
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -17,6 +18,7 @@ from stemlem import stemming
 from stemlem import lemmatization
 from jaccard_code import jsimilarity
 from intersection_code import intersection
+import copy
 
 parser = ap.ArgumentParser()
 parser.add_argument("artist1", help="First artist", type= str)
@@ -62,12 +64,14 @@ if artitle_check(artist2,song2,top500) == False:
 filtered1 = stopremoval(text1)
 filtered2 = stopremoval(text2)
 
+
 #stemmisation of the two songs
 
 
 
 stem1 = stemming (filtered1)
 stem2 = stemming ( filtered2)
+
 
 #lemmatization of the two songs
 
@@ -95,10 +99,10 @@ if preference== "jaccard":
 
 if preference=="intersection":
 #by stemmisation
-	inter_s= intersection(stem1, stem2)
+	inter_s,union_s= intersection(stem1, stem2)
 	print ( "number of intersection by stemmatisation is {}".format(inter_s) )
 	#by lemmatisation
-	inter_l= intersection(lem1, lem2)
+	inter_l,union_l= intersection(lem1, lem2)
 	print ( "number of intersection by lemmatisation is {}".format(inter_l) )
 
 
