@@ -1,3 +1,4 @@
+import copy
 def jsimilarity(list1, list2):
     jacc1 = set(list1)
     jacc2 = set(list2)

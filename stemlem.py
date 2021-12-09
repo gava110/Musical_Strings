@@ -21,15 +21,15 @@ def stemming (songs):
   
   """
     
-    ps = PorterStemmer()
+  ps = PorterStemmer()
     
     #creating a list for stemmed words
-    stemmed_songs = []
+  stemmed_songs = []
     
     #applying the algorithm
-    for w in songs:
-        stemmed_songs.append(ps.stem(w))
-    return stemmed_songs
+  for w in songs:
+      stemmed_songs.append(ps.stem(w))
+  return stemmed_songs
 
 
 # In[59]:
@@ -44,11 +44,11 @@ def lemmatization (songs):
 
   """
     
-    lemmatizer = WordNetLemmatizer()
-    lemmatized_songs = []
+  lemmatizer = WordNetLemmatizer()
+  lemmatized_songs = []
     
-    for w in songs:
-        lemmatized_songs.append(lemmatizer.lemmatize(w))
+  for w in songs:
+      lemmatized_songs.append(lemmatizer.lemmatize(w))
     
-    return lemmatized_songs
+  return lemmatized_songs
 
