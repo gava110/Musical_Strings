@@ -59,7 +59,7 @@ optional arguments:
 ```
 
 ## Running Tests
-In the folder Tests, we can find the tests performed. To perform the test on lemmatization, for example, the command should be written as follows: 
+In the folder Tests the user can find the unit tests. To perform the test on lemmatization, for example, the command should be written as follows: 
 ```bash
 python3 Tests/test_lemmatization.py
 ```
