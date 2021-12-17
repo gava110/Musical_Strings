@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.append('../')
+sys.path.append('./')
 from jaccard import jsimilarity
 """
 This module is the one that tests the jaccard similarity function.
