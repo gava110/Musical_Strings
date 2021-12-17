@@ -35,9 +35,9 @@ Preference (abbreviate with -p) is optional argument required to the user. It co
 
 parser = ap.ArgumentParser()
 parser.add_argument("artist1", help="First artist", type=str)
-parser.add_argument("song1", help="Song of the first artist", type=str)
+parser.add_argument("title1", help="Song of the first artist", type=str)
 parser.add_argument("artist2", help="Second artist", type=str)
-parser.add_argument("song2", help="Song of the Second artist", type=str)
+parser.add_argument("title2", help="Song of the Second artist", type=str)
 parser.add_argument(
     "-p",
     "--preference",
@@ -49,11 +49,8 @@ parser.add_argument(
     type=str)
 args = parser.parse_args()
 
-# rename user entries
-artist1 = args.artist1
-song1 = args.song1
-artist2 = args.artist2
-song2 = args.song2
+
+# rename preference entries
 preference = args.preference
 
 
@@ -66,13 +63,13 @@ and statement is printed. If the process does not produce errors, it store the t
 
 
 try:
-    text1 = get_lyric(artist1, song1)
+    get_lyric(args.artist1, args.title1)
 except KeyError:
-    print("{} - {} not found".format(artist1, song1))
+    print("{} - {} not found".format(args.artist1, args.title1))
 try:
-    text2 = get_lyric(artist2, song2)
+    get_lyric(args.artist2, args.title2)
 except KeyError:
-    print("{} - {} not found".format(artist2, song2))
+    print("{} - {} not found".format(args.artist2, args.title2))
 """
 We upload "Top 500 Songs.csv" to have list of best 500 songs in history.
 Then all columns, exept for "artist" and "title", are dropped as the code does
@@ -80,23 +77,49 @@ not use them.
 
 """
 
+"""
+Define the class "Song" with attributes Artist, title and lyric.
 
+"""
+
+
+class song:
+    def __init__(self, artist, title):
+        self.artist = artist
+        self.title = title
+        self.lyric = get_lyric(artist, title)
+
+
+# trasform our inputs into objects
+song1 = song(args.artist1, args.title1)
+song2 = song(args.artist2, args.title2)
+
+
+#upload Top500 csv
 top500 = pandas.read_csv("Top 500 Songs.csv", encoding='Latin 1')
 top500 = top500[["artist", "title"]]
 
 
 # Check if the two songs are in top 500 dataset through "check" module.
-if artitle_check(artist1, song1, top500) == False:
-    print("Your FIST artist is not on Top 500 songs")
+if artitle_check(
+        song1.__dict__["artist"],
+        song1.__dict__["title"],
+        top500) == False:
+    print("{} by {} is not in Top 500 songs".format(
+        song1.__dict__["title"], song1.__dict__["artist"]))
     exit()
-if artitle_check(artist2, song2, top500) == False:
-    print("Your SECOND artist is not on Top 500 songs")
+if artitle_check(
+        song2.__dict__["artist"],
+        song2.__dict__["title"],
+        top500) == False:
+    print("{} by {} is not in Top 500 songs".format(
+        song2.__dict__["title"], song2.__dict__["artist"]))
     exit()
 
 
 # Remove stopwords and punctuation through "stopwords" module.
-filtered1 = stopremoval(text1)
-filtered2 = stopremoval(text2)
+filtered1 = stopremoval(song1.__dict__["lyric"])
+filtered2 = stopremoval(song2.__dict__["lyric"])
 
 
 # Store lemmatised list of strings
@@ -111,13 +134,12 @@ if preference == "jaccard":
 
     print(
         "{} by {} and {} by {} are similar  according to lemmatization by {}%".format(
-            song1,
-            artist1,
-            song2,
-            artist2,
+            song1.__dict__["title"],
+            song1.__dict__["artist"],
+            song2.__dict__["title"],
+            song2.__dict__["artist"],
             round(
-                similarity_l *
-                100,
+                similarity_l * 100,
                 2)))
 
 
@@ -125,4 +147,4 @@ if preference == "intersection":
 
     # Intersection of set thorough "intersection module"
     inter_l = intersection(lem1, lem2)
-    print("Number of intersection by lemmatization is {}".format(inter_l))
+    print("Number of intersections by lemmatization is {}".format(inter_l))
