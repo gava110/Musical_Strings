@@ -29,7 +29,7 @@ def stopremoval(song):
                        "paroles", "de", "la", "chanson"]
 
     # Apply converted iso639 code to define language specific stopwords
-    stop_words = set((stopwords.words(lang)) +
+    stop_words = set((stopwords.words(lang.lower())) +
                      list(string.punctuation)+extra_stopwords)
 
     # Turn all words inside lyrics in lowercase and tokenize them
