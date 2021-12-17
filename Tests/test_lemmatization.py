@@ -1,4 +1,6 @@
 import unittest
+import sys
+sys.path.append('./')
 from stemlem import lemmatization
 """
 This module is the one that tests the lemmatization function.
