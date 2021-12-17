@@ -57,6 +57,13 @@ optional arguments:
   -h, --help: show this help message and exit
   -p {jaccard,intersection}, --preference {jaccard,intersection}: Enter similarity method preference
 ```
+
+## Running Tests
+In the folder Tests, we can find the tests performed. To perform the test on lemmatization, for example, the command should be written as follows: 
+```bash
+python3 Tests/test_lemmatization.py
+```
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
