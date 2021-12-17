@@ -18,11 +18,11 @@ class TestLemmatization(unittest.TestCase):
     def test_wrong_values(self):
         # you should input wrong data
         #self.assertEqual(lemmatization(["Played"]), None)
-        self.assertEqual(lemmatization(["Played"]), None)
+        self.assertNotEqual(lemmatization(["Played"]), None)
         
     # corner case: empty string
     def test_empty_string(self):
-        self.assertEqual(lemmatization(""), None)  
+        self.assertEqual(lemmatization(" "), [] )  
 
 if __name__ == '__main__':
     # with more details
