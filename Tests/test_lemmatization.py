@@ -24,7 +24,7 @@ class TestLemmatization(unittest.TestCase):
         
     # corner case: empty string
     def test_empty_string(self):
-        self.assertEqual(lemmatization(" "), [] )  
+        self.assertEqual(lemmatization([]), [] )  
 
 if __name__ == '__main__':
     # with more details
