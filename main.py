@@ -6,7 +6,7 @@ in order to performe the software aim.
 
 """
 import nltk
-nltk.download('omw-1.4')
+nltk.download('omw-1.4',quiet=True)
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
