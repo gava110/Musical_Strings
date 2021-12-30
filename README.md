@@ -70,7 +70,7 @@ Python3 main.py "the Beatles" "Yesterday" "John Lennon" "Imagine" -p
 
 User can choose among Jaccard Similarity and the Intersection method. By default Jaccard similarity is performed, for its better performance.
 ``` bash
-Python3 main.py "the Beatles" "Yesterday" "John Lennon" "Imagine" -p “intersection”
+Python3 main.py "the Beatles" "Yesterday" "John Lennon" "Imagine" -p intersection
 ```
 
 The output:
