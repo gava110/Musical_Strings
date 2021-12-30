@@ -6,6 +6,7 @@ in order to performe the software aim.
 
 """
 import nltk
+nltk.download('omw-1.4')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
@@ -21,6 +22,8 @@ from stopwords import stopremoval
 from stemlem import lemmatization
 from jaccard import jsimilarity
 from intersection import intersection
+import requests
+import json
 import copy
 
 """
