@@ -19,8 +19,24 @@ For example:
 pip install nltk
 ```
 
-### Nltk
-If some particular package not included is required to go forward in the project, you should write this line of code in the terminal:
+Moreover, some additional Nltk modules are required to download manually through the terminal with following codes:
+For example:
+```bash 
+Python3 -m nltk.downloader omw-1.4
+```
+```bash 
+Python3 -m nltk.downloader stopwords
+```
+```bash 
+Python3 -m nltk.downloader wordnet
+```
+```bash 
+Python3 -m nltk.downloader punkt
+```
+
+if some other problems arise with nltk packages, please run in the terminal the following code:
+-- Please be aware the following step will take some minutes.
+
 ```bash
 Python3 -m nltk.downloader all
 ```
