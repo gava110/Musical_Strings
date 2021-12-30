@@ -7,10 +7,12 @@ in order to performe the software aim.
 """
 import nltk
 nltk.download('omw-1.4',quiet=True)
+nltk.download('stopwords',quiet=True)
+nltk.download('Wordnet ',quiet=True)
+nltk.download('Punkt ',quiet=True)
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from langdetect import detect
 import iso639
