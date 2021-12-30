@@ -4,7 +4,27 @@ Musical_Strings is a project that takes user’s inputs from the machine termina
 
 ## Installation
 Use the command git clone https://github.com/gava110/Musical_Strings.git in the command prompt of your PC to automatically download the whole folder containing the modules. Git should have been previously installed.
+The required libraries to run our project on the terminal are: 
+- nltk
+- langdetect
+- iso639
+- Pandas
+- Numpy
+- Request
+- json
+- Copy
 
+For example:
+```bash 
+pip install nltk
+```
+
+### Nltk
+If some particular package not included is required to go forward in the project, you should write this line of code in the terminal:
+```bash
+Python3 -m nltk.downloader all
+```
+  
 ## Usage
 The aim of the project is to perform the similarity between two of the best 500 songs in history.
 Once two pairs of “Artist” and “Song” are entered, the program performs the similarity between the lyrics. 
