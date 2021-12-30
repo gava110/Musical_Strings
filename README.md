@@ -8,11 +8,11 @@ The required libraries to run our project on the terminal are:
 - nltk
 - langdetect
 - iso639
-- Pandas
-- Numpy
-- Request
+- pandas
+- numpy
+- request
 - json
-- Copy
+- copy
 
 For example:
 ```bash 
